@@ -30,7 +30,7 @@ function logoMarkup(size = "text-xl") {
     </span>
     <span class="leading-none">
       <span class="block font-display font-extrabold ${size} tracking-tight text-neutral-900">Daily<span class="text-brand-600">Fresh</span></span>
-      <span class="block text-[10px] uppercase tracking-[0.2em] text-neutral-400 font-semibold">Fresh Produce · Dubai</span>
+      <span class="hidden sm:block text-[10px] uppercase tracking-[0.2em] text-neutral-400 font-semibold">Fresh Produce · Dubai</span>
     </span>
   </a>`;
 }
@@ -70,12 +70,12 @@ function renderHeader() {
   </div>
   <!-- main nav -->
   <div id="mainnav" class="bg-white/90 backdrop-blur-lg border-b border-neutral-100 transition-shadow">
-    <div class="mx-auto max-w-7xl px-4 h-16 md:h-20 flex items-center gap-4">
+    <div class="mx-auto max-w-7xl px-4 h-16 md:h-20 flex items-center gap-2 sm:gap-4">
       ${logoMarkup()}
       <nav class="hidden lg:flex items-center gap-7 ml-6">${links}</nav>
-      <div class="ml-auto flex items-center gap-1 sm:gap-2">
+      <div class="ml-auto flex items-center gap-0.5 sm:gap-2">
         <button data-search-open class="grid place-items-center w-10 h-10 rounded-full text-neutral-600 hover:bg-neutral-100 transition" aria-label="Search">${I.search}</button>
-        <a href="cart.html" class="relative grid place-items-center w-10 h-10 rounded-full text-neutral-600 hover:bg-neutral-100 transition" aria-label="Wishlist">
+        <a href="cart.html" class="relative hidden sm:grid place-items-center w-10 h-10 rounded-full text-neutral-600 hover:bg-neutral-100 transition" aria-label="Wishlist">
           ${I.heart}<span data-wish-count class="hidden absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 grid place-items-center rounded-full bg-orange-500 text-white text-[10px] font-bold">0</span>
         </a>
         <a href="cart.html" class="relative grid place-items-center w-10 h-10 rounded-full text-neutral-600 hover:bg-neutral-100 transition" aria-label="Cart">
