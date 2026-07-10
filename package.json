@@ -1,0 +1,11 @@
+{
+  "name": "fresh-focus-food-stuff",
+  "version": "1.0.0",
+  "description": "Premium e-commerce website for Fresh Focus Food Stuff — fresh fruits & vegetables in Dubai",
+  "private": true,
+  "scripts": {
+    "start": "npx --yes serve -l 4321 .",
+    "dev": "npx --yes serve -l 4321 ."
+  },
+  "keywords": ["ecommerce", "dubai", "fresh-produce", "fruits", "vegetables", "tailwind"]
+}

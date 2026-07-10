@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart & Checkout — Fresh Focus Food Stuff Dubai</title>
+  <meta name="description" content="Review your basket and check out. Free same-day delivery across Dubai." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      fontFamily: { display: ["Poppins","sans-serif"], sans: ["Inter","sans-serif"] },
+      colors: { brand: { 50:"#ecfdf3",100:"#d1fadf",200:"#a6f4c5",300:"#6ce9a6",400:"#32d583",500:"#22c55e",600:"#16a34a",700:"#15803d",800:"#166534",900:"#14532d" } },
+    } } };
+  </script>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script defer src="assets/js/products.js"></script>
+  <script defer src="assets/js/cart.js"></script>
+  <script defer src="assets/js/site.js"></script>
+</head>
+<body data-page="cart" class="bg-neutral-50 text-neutral-800">
+  <header data-header></header>
+
+  <main class="mx-auto max-w-7xl px-4 py-8 md:py-12">
+    <nav class="text-sm text-neutral-400 mb-3"><a href="index.html" class="hover:text-brand-700">Home</a> <span class="mx-1">/</span> <span class="text-neutral-700 font-medium">Cart</span></nav>
+    <h1 class="font-display font-extrabold text-3xl md:text-4xl text-neutral-900 mb-8">Your Cart</h1>
+
+    <!-- steps -->
+    <ol class="flex items-center gap-2 text-sm mb-8" data-steps>
+      <li class="flex items-center gap-2 font-semibold text-brand-700"><span class="grid place-items-center w-7 h-7 rounded-full bg-brand-600 text-white text-xs">1</span> Cart</li>
+      <li class="w-8 h-px bg-neutral-200"></li>
+      <li class="flex items-center gap-2 text-neutral-400" data-step2><span class="grid place-items-center w-7 h-7 rounded-full bg-neutral-200 text-xs">2</span> Details</li>
+      <li class="w-8 h-px bg-neutral-200"></li>
+      <li class="flex items-center gap-2 text-neutral-400" data-step3><span class="grid place-items-center w-7 h-7 rounded-full bg-neutral-200 text-xs">3</span> Done</li>
+    </ol>
+
+    <div class="grid lg:grid-cols-[1fr_380px] gap-8 items-start" data-cart-layout>
+      <!-- items -->
+      <section data-items class="space-y-4"></section>
+
+      <!-- summary / checkout -->
+      <aside class="lg:sticky lg:top-28 rounded-2xl bg-white border border-neutral-100 p-6 shadow-sm">
+        <h2 class="font-display font-bold text-xl text-neutral-900 mb-4">Order Summary</h2>
+        <div class="space-y-3 text-sm" data-summary></div>
+
+        <!-- checkout form (hidden until proceed) -->
+        <form data-checkout class="hidden mt-5 space-y-3">
+          <input required name="name" placeholder="Full name" class="w-full rounded-xl border border-neutral-200 px-4 py-3 outline-none focus:ring-2 focus:ring-brand-400" />
+          <input required name="phone" placeholder="Phone (+971…)" class="w-full rounded-xl border border-neutral-200 px-4 py-3 outline-none focus:ring-2 focus:ring-brand-400" />
+          <input required name="area" placeholder="Area / Neighbourhood (Dubai)" class="w-full rounded-xl border border-neutral-200 px-4 py-3 outline-none focus:ring-2 focus:ring-brand-400" />
+          <textarea name="address" rows="2" placeholder="Building, street, apartment…" class="w-full rounded-xl border border-neutral-200 px-4 py-3 outline-none focus:ring-2 focus:ring-brand-400"></textarea>
+          <div class="rounded-xl bg-brand-50 text-brand-800 text-sm p-3 flex gap-2"><span>🚚</span><span>Free same-day delivery in Dubai for orders placed before 4 PM.</span></div>
+        </form>
+
+        <button data-proceed class="mt-5 w-full rounded-full bg-brand-600 hover:bg-brand-700 text-white font-bold h-13 py-3.5 transition shadow-lg shadow-brand-500/25">Proceed to Checkout</button>
+        <button data-place class="hidden mt-3 w-full rounded-full bg-brand-600 hover:bg-brand-700 text-white font-bold h-13 py-3.5 transition shadow-lg shadow-brand-500/25">Place Order</button>
+        <a href="shop.html" class="mt-3 block text-center text-sm text-neutral-500 hover:text-brand-700">← Continue shopping</a>
+      </aside>
+    </div>
+
+    <!-- empty state -->
+    <div data-empty class="hidden text-center py-20">
+      <p class="text-6xl mb-4">🛒</p>
+      <h2 class="text-2xl font-bold text-neutral-900">Your cart is empty</h2>
+      <p class="text-neutral-500 mt-2">Looks like you haven't added any fresh goodies yet.</p>
+      <a href="shop.html" class="inline-flex mt-6 rounded-full bg-brand-600 text-white font-semibold px-6 py-3">Start shopping</a>
+    </div>
+
+    <!-- success state -->
+    <div data-success class="hidden text-center py-20 max-w-lg mx-auto">
+      <div class="w-20 h-20 rounded-full bg-brand-100 text-brand-600 grid place-items-center mx-auto text-4xl mb-4">✓</div>
+      <h2 class="text-3xl font-display font-extrabold text-neutral-900">Order placed!</h2>
+      <p class="text-neutral-500 mt-3" data-success-msg></p>
+      <div class="flex flex-wrap gap-3 justify-center mt-7">
+        <a href="shop.html" class="rounded-full bg-brand-600 text-white font-semibold px-6 py-3">Continue shopping</a>
+        <a data-wa-order href="#" target="_blank" rel="noopener" class="rounded-full bg-[#25D366] text-white font-semibold px-6 py-3">Confirm on WhatsApp</a>
+      </div>
+    </div>
+  </main>
+
+  <div data-footer></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const itemsEl = document.querySelector("[data-items]");
+      const summaryEl = document.querySelector("[data-summary]");
+      const layout = document.querySelector("[data-cart-layout]");
+      const emptyEl = document.querySelector("[data-empty]");
+      const successEl = document.querySelector("[data-success]");
+      const proceedBtn = document.querySelector("[data-proceed]");
+      const placeBtn = document.querySelector("[data-place]");
+      const form = document.querySelector("[data-checkout]");
+      let stage = "cart";
+
+      function render() {
+        const cart = readCart();
+        if (!cart.length && stage!=="success") {
+          layout.classList.add("hidden"); emptyEl.classList.remove("hidden"); document.querySelector("[data-steps]").classList.add("hidden");
+          return;
+        }
+        emptyEl.classList.add("hidden");
+
+        itemsEl.innerHTML = cart.map(({id,qty})=>{
+          const p=getProduct(id); if(!p) return "";
+          return `
+          <div class="flex gap-4 rounded-2xl bg-white border border-neutral-100 p-3 sm:p-4">
+            <a href="product.html?id=${p.id}" class="shrink-0"><img src="${p.img}" alt="${p.name}" class="w-24 h-24 rounded-xl object-cover"/></a>
+            <div class="flex-1 min-w-0">
+              <div class="flex justify-between gap-2">
+                <div>
+                  <a href="product.html?id=${p.id}" class="font-semibold text-neutral-900 hover:text-brand-700 line-clamp-1">${p.name}</a>
+                  <p class="text-xs text-neutral-400 mt-0.5 capitalize">${p.category} · ${p.unit}</p>
+                </div>
+                <button data-remove="${p.id}" class="text-neutral-300 hover:text-red-500 transition shrink-0" aria-label="Remove">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>
+                </button>
+              </div>
+              <div class="flex items-center justify-between mt-3">
+                <div class="inline-flex items-center rounded-full border border-neutral-200">
+                  <button data-dec="${p.id}" class="w-9 h-9 grid place-items-center text-neutral-500 hover:text-brand-700 text-lg">−</button>
+                  <span class="w-8 text-center font-semibold">${qty}</span>
+                  <button data-inc="${p.id}" class="w-9 h-9 grid place-items-center text-neutral-500 hover:text-brand-700 text-lg">+</button>
+                </div>
+                <div class="text-right">
+                  <p class="font-bold text-neutral-900">${formatAED(p.price*qty)}</p>
+                  ${p.oldPrice?`<p class="text-xs text-neutral-400 line-through">${formatAED(p.oldPrice*qty)}</p>`:""}
+                </div>
+              </div>
+            </div>
+          </div>`;
+        }).join("");
+
+        const subtotal = cartSubtotal();
+        const savings = readCart().reduce((s,{id,qty})=>{const p=getProduct(id);return s+(p&&p.oldPrice?(p.oldPrice-p.price)*qty:0);},0);
+        summaryEl.innerHTML = `
+          <div class="flex justify-between"><span class="text-neutral-500">Subtotal</span><span class="font-semibold">${formatAED(subtotal)}</span></div>
+          ${savings?`<div class="flex justify-between text-orange-600"><span>You save</span><span class="font-semibold">−${formatAED(savings)}</span></div>`:""}
+          <div class="flex justify-between"><span class="text-neutral-500">Delivery (Dubai)</span><span class="font-semibold text-brand-600">FREE</span></div>
+          <div class="flex justify-between pt-3 mt-1 border-t border-neutral-100 text-base"><span class="font-bold">Total</span><span class="font-extrabold text-brand-700">${formatAED(subtotal)}</span></div>`;
+      }
+
+      // events
+      itemsEl.addEventListener("click",(e)=>{
+        const inc=e.target.closest("[data-inc]"), dec=e.target.closest("[data-dec]"), rm=e.target.closest("[data-remove]");
+        if(inc){ const it=readCart().find(i=>i.id===inc.dataset.inc); setQty(inc.dataset.inc,(it?.qty||0)+1); render(); }
+        if(dec){ const it=readCart().find(i=>i.id===dec.dataset.dec); setQty(dec.dataset.dec,(it?.qty||0)-1); render(); }
+        if(rm){ removeFromCart(rm.dataset.remove); render(); }
+      });
+
+      proceedBtn.addEventListener("click",()=>{
+        if(!readCart().length) return;
+        stage="details";
+        form.classList.remove("hidden");
+        proceedBtn.classList.add("hidden");
+        placeBtn.classList.remove("hidden");
+        document.querySelector("[data-step2]").classList.replace("text-neutral-400","text-brand-700");
+        document.querySelector("[data-step2] span").classList.add("bg-brand-600","text-white");
+        form.scrollIntoView({behavior:"smooth",block:"center"});
+      });
+
+      placeBtn.addEventListener("click",()=>{
+        if(!form.reportValidity()) return;
+        const data=Object.fromEntries(new FormData(form));
+        const cart=readCart();
+        const lines=cart.map(({id,qty})=>{const p=getProduct(id);return `• ${qty}x ${p.name} — ${formatAED(p.price*qty)}`;}).join("%0A");
+        const total=formatAED(cartSubtotal());
+        const msg=`New order from ${data.name}%0A📞 ${data.phone}%0A📍 ${data.area}, ${data.address}%0A%0A${lines}%0A%0ATotal: ${total} (Free delivery)`;
+        document.querySelector("[data-wa-order]").href=`https://wa.me/${WHATSAPP}?text=${msg}`;
+        document.querySelector("[data-success-msg]").textContent=`Thanks ${data.name}! Your order of ${total} is confirmed. Our team will call you shortly to arrange same-day delivery to ${data.area}.`;
+        stage="success";
+        clearCart();
+        layout.classList.add("hidden");
+        document.querySelector("[data-steps]").classList.add("hidden");
+        successEl.classList.remove("hidden");
+        window.scrollTo({top:0,behavior:"smooth"});
+      });
+
+      document.addEventListener("cart:change", ()=>{ if(stage==="cart"||stage==="details") render(); });
+      render();
+    });
+  </script>
+</body>
+</html>

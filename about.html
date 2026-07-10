@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Fresh Focus Food Stuff Dubai</title>
+  <meta name="description" content="Fresh Focus Food Stuff is Dubai's premium supplier of farm-fresh fruits, vegetables and cold-pressed juices with same-day delivery. Learn our story." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      fontFamily: { display: ["Poppins","sans-serif"], sans: ["Inter","sans-serif"] },
+      colors: { brand: { 50:"#ecfdf3",100:"#d1fadf",200:"#a6f4c5",300:"#6ce9a6",400:"#32d583",500:"#22c55e",600:"#16a34a",700:"#15803d",800:"#166534",900:"#14532d" } },
+    } } };
+  </script>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script defer src="assets/js/products.js"></script>
+  <script defer src="assets/js/cart.js"></script>
+  <script defer src="assets/js/site.js"></script>
+</head>
+<body data-page="about" class="bg-white text-neutral-800">
+  <header data-header></header>
+
+  <main>
+    <!-- hero -->
+    <section class="bg-fresh">
+      <div class="mx-auto max-w-7xl px-4 py-14 md:py-20 grid lg:grid-cols-2 gap-10 items-center">
+        <div data-reveal>
+          <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider">Our story</p>
+          <h1 class="mt-2 font-display font-extrabold text-4xl md:text-5xl leading-tight text-neutral-900">Freshness is our<br/><span class="text-gradient">only focus</span></h1>
+          <p class="mt-5 text-lg text-neutral-600 leading-relaxed max-w-lg">Fresh Focus Food Stuff began with a simple mission — bring Dubai the same just-picked produce you'd find at the farm gate, delivered to your door the very same day.</p>
+          <p class="mt-4 text-neutral-600 leading-relaxed max-w-lg">From premium Alphonso mangoes to crisp local vegetables and cold-pressed juices, every item is hand-selected, cold-chain kept and quality-checked by our team before it reaches you.</p>
+          <div class="mt-8 flex gap-3">
+            <a href="shop.html" class="rounded-full bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3.5 transition shadow-lg shadow-brand-500/25">Shop our produce</a>
+            <a href="contact.html" class="rounded-full border-2 border-neutral-200 hover:border-brand-400 font-semibold px-6 py-3.5 transition">Get in touch</a>
+          </div>
+        </div>
+        <div class="relative" data-reveal data-reveal-delay="120">
+          <div class="grid grid-cols-2 gap-4">
+            <img src="https://images.unsplash.com/photo-1610348725531-843dff563e2c?auto=format&fit=crop&w=600&q=80" class="rounded-2xl object-cover w-full h-56 shadow-lg" alt="Fresh vegetables"/>
+            <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=600&q=80" class="rounded-2xl object-cover w-full h-56 shadow-lg mt-8" alt="Mangoes"/>
+            <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=600&q=80" class="rounded-2xl object-cover w-full h-56 shadow-lg" alt="Fresh juice"/>
+            <img src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?auto=format&fit=crop&w=600&q=80" class="rounded-2xl object-cover w-full h-56 shadow-lg mt-8" alt="Exotic fruit"/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- stats -->
+    <section class="mx-auto max-w-7xl px-4 py-14">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4" data-stats></div>
+    </section>
+
+    <!-- values -->
+    <section class="bg-neutral-50 border-y border-neutral-100">
+      <div class="mx-auto max-w-7xl px-4 py-16 md:py-20">
+        <div class="text-center max-w-2xl mx-auto mb-12" data-reveal>
+          <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider">What we stand for</p>
+          <h2 class="font-display font-extrabold text-3xl md:text-4xl text-neutral-900 mt-1">Our promise to you</h2>
+        </div>
+        <div class="grid sm:grid-cols-3 gap-5" data-values></div>
+      </div>
+    </section>
+
+    <!-- process -->
+    <section class="mx-auto max-w-7xl px-4 py-16 md:py-20">
+      <div class="text-center max-w-2xl mx-auto mb-12" data-reveal>
+        <p class="text-brand-600 font-semibold text-sm uppercase tracking-wider">How it works</p>
+        <h2 class="font-display font-extrabold text-3xl md:text-4xl text-neutral-900 mt-1">Farm to door in 4 steps</h2>
+      </div>
+      <div class="grid md:grid-cols-4 gap-5" data-process></div>
+    </section>
+
+    <!-- CTA -->
+    <section class="mx-auto max-w-7xl px-4 pb-20">
+      <div class="rounded-3xl bg-gradient-to-br from-brand-600 to-brand-800 text-white text-center px-6 py-14" data-reveal>
+        <h2 class="font-display font-extrabold text-3xl md:text-4xl">Taste the Fresh Focus difference</h2>
+        <p class="mt-3 text-brand-50/90 max-w-xl mx-auto">Join thousands of Dubai families who've made the switch to genuinely fresh, same-day produce.</p>
+        <a href="shop.html" class="inline-flex mt-7 rounded-full bg-white text-brand-700 font-bold px-8 py-4 hover:scale-105 transition">Start shopping →</a>
+      </div>
+    </section>
+  </main>
+
+  <div data-footer></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const stats=[
+        {num:12, suffix:"k+", dec:0, label:"Happy customers"},
+        {num:50, suffix:"+",  dec:0, label:"Produce varieties"},
+        {num:3,  suffix:" hrs", dec:0, label:"Avg. delivery time"},
+        {num:4.9, suffix:"★", dec:1, label:"Average rating"},
+      ];
+      document.querySelector("[data-stats]").innerHTML=stats.map((s,i)=>`
+        <div data-reveal data-reveal-delay="${i*70}" class="rounded-2xl bg-white border border-neutral-100 p-6 text-center shadow-sm">
+          <p class="font-display font-extrabold text-3xl md:text-4xl text-brand-700"><span data-count-up="${s.num}" data-suffix="${s.suffix}" data-decimals="${s.dec}">0</span></p>
+          <p class="text-sm text-neutral-500 mt-1">${s.label}</p>
+        </div>`).join("");
+
+      const values=[
+        ["🌿","Uncompromising freshness","We source daily and keep everything cold-chain, so produce reaches you at peak ripeness — never a day older."],
+        ["🤝","Fair & direct sourcing","We partner directly with trusted farms and growers, supporting them fairly while keeping your prices honest."],
+        ["♻️","Less waste, more care","Smart ordering and recyclable packaging mean fresher food with a lighter footprint on Dubai."],
+      ];
+      document.querySelector("[data-values]").innerHTML=values.map((v,i)=>`
+        <div data-reveal data-reveal-delay="${i*80}" class="rounded-2xl bg-white border border-neutral-100 p-7 shadow-sm">
+          <span class="text-3xl">${v[0]}</span>
+          <h3 class="font-display font-bold text-xl text-neutral-900 mt-4">${v[1]}</h3>
+          <p class="mt-2 text-neutral-500 leading-relaxed">${v[2]}</p>
+        </div>`).join("");
+
+      const process=[["01","Hand-picked","Farmers harvest at dawn; we select only the best."],["02","Cold-chain kept","Chilled storage locks in freshness end-to-end."],["03","You order","Shop online or WhatsApp us before 4 PM."],["04","Same-day delivery","We deliver to your Dubai doorstep the same day."]];
+      document.querySelector("[data-process]").innerHTML=process.map((p,i)=>`
+        <div data-reveal data-reveal-delay="${i*80}" class="relative rounded-2xl border border-neutral-100 p-6 hover:shadow-lg transition">
+          <span class="font-display font-extrabold text-4xl text-brand-100">${p[0]}</span>
+          <h3 class="font-bold text-lg text-neutral-900 -mt-3">${p[1]}</h3>
+          <p class="mt-2 text-sm text-neutral-500">${p[2]}</p>
+        </div>`).join("");
+
+      if (window.initReveal) initReveal();
+      if (window.initCountUp) initCountUp();
+    });
+  </script>
+</body>
+</html>

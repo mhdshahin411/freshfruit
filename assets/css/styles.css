@@ -1,0 +1,128 @@
+/* =============================================================
+   Fresh Focus Food Stuff — custom styles & animations
+   (Tailwind handles most utilities; this adds the premium layer)
+   ============================================================= */
+
+:root {
+  --brand-50:  #ecfdf3;
+  --brand-500: #22c55e;
+  --brand-600: #16a34a;
+  --brand-700: #15803d;
+}
+
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: "Inter", system-ui, sans-serif; color: #1f2328; }
+.font-display { font-family: "Poppins", "Inter", sans-serif; }
+
+::selection { background: var(--brand-500); color: #fff; }
+
+/* --- custom scrollbar --- */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #f4f4f5; }
+::-webkit-scrollbar-thumb { background: #d4d4d8; border-radius: 999px; border: 2px solid #f4f4f5; }
+::-webkit-scrollbar-thumb:hover { background: var(--brand-500); }
+
+/* --- line clamp helpers --- */
+.line-clamp-1 { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+.line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* --- scroll reveal (with direction variants) --- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .75s cubic-bezier(.16,.84,.44,1), transform .75s cubic-bezier(.16,.84,.44,1);
+  will-change: opacity, transform;
+}
+[data-reveal="left"]  { transform: translateX(-36px); }
+[data-reveal="right"] { transform: translateX(36px); }
+[data-reveal="scale"] { transform: scale(.9); }
+[data-reveal="fade"]  { transform: none; }
+[data-reveal="blur"]  { transform: translateY(20px); filter: blur(8px); }
+[data-reveal].reveal-in { opacity: 1; transform: none; filter: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .001ms !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+  [data-reveal] { opacity: 1; transform: none; }
+}
+
+/* --- toast --- */
+@keyframes toastIn { from { opacity: 0; transform: translateY(16px) scale(.96); } to { opacity: 1; transform: none; } }
+@keyframes toastOut { to { opacity: 0; transform: translateY(8px) scale(.98); } }
+.toast-in { animation: toastIn .3s cubic-bezier(.16,.84,.44,1) both; }
+.toast-out { animation: toastOut .3s ease forwards; }
+
+/* --- whatsapp pulse --- */
+@keyframes waPulse { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,.45); } 70% { box-shadow: 0 0 0 16px rgba(37,211,102,0); } 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); } }
+.wa-pulse { animation: waPulse 2.4s infinite; }
+
+/* --- floating fruit blobs (hero) --- */
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(4deg); } }
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-float-slow { animation: float 9s ease-in-out infinite; }
+
+/* --- gradient text (animated shimmer sweep) --- */
+.text-gradient {
+  background: linear-gradient(90deg,#16a34a,#f59e0b,#f97316,#16a34a);
+  background-size: 250% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: gradientSweep 6s ease infinite;
+}
+@keyframes gradientSweep { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+
+/* --- cart badge pop --- */
+@keyframes cartPop { 0%{transform:scale(1)} 35%{transform:scale(1.6)} 60%{transform:scale(.85)} 100%{transform:scale(1)} }
+.cart-pop { animation: cartPop .5s cubic-bezier(.34,1.56,.64,1); }
+
+/* --- button sheen (sweeping highlight on hover) --- */
+.btn-shine { position: relative; overflow: hidden; }
+.btn-shine::after {
+  content: ""; position: absolute; top: 0; left: -75%; width: 50%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,.45), transparent);
+  transform: skewX(-20deg); transition: left .6s ease;
+}
+.btn-shine:hover::after { left: 130%; }
+
+/* --- soft entrance for hero (staggered fade-up on load) --- */
+@keyframes heroFade { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+.hero-fade { opacity: 0; animation: heroFade .8s cubic-bezier(.16,.84,.44,1) forwards; }
+
+/* --- pulse ring on badges/dots --- */
+@keyframes livePulse { 0%{box-shadow:0 0 0 0 rgba(34,197,94,.5)} 70%{box-shadow:0 0 0 8px rgba(34,197,94,0)} 100%{box-shadow:0 0 0 0 rgba(34,197,94,0)} }
+.live-dot { animation: livePulse 2s infinite; }
+
+/* --- gentle bob for emoji/icons on hover --- */
+@keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+.group:hover .hover-bob { animation: bob .6s ease; }
+
+/* --- bounce-in for cards/images --- */
+@keyframes popIn { 0%{opacity:0;transform:scale(.8)} 60%{transform:scale(1.04)} 100%{opacity:1;transform:scale(1)} }
+.pop-in { animation: popIn .6s cubic-bezier(.34,1.56,.64,1) both; }
+
+/* --- marquee (trust bar) --- */
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee-track { animation: marquee 26s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
+/* --- shimmer for image loading (optional) --- */
+@keyframes shimmer { 100% { background-position: -200% 0; } }
+
+/* --- range slider (shop filter) --- */
+input[type="range"] { -webkit-appearance: none; appearance: none; height: 6px; border-radius: 999px; background: #e5e7eb; outline: none; }
+input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 999px; background: var(--brand-600); border: 3px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,.2); cursor: pointer; }
+input[type="range"]::-moz-range-thumb { width: 20px; height: 20px; border-radius: 999px; background: var(--brand-600); border: 3px solid #fff; cursor: pointer; }
+
+/* --- hero image zoom on load --- */
+@keyframes heroZoom { from { transform: scale(1.12); } to { transform: scale(1); } }
+.hero-zoom { animation: heroZoom 1.6s cubic-bezier(.16,.84,.44,1) both; }
+
+/* --- product image zoom lens on detail page --- */
+.zoom-wrap { overflow: hidden; }
+.zoom-wrap img { transition: transform .1s ease-out; }
+
+/* --- subtle grain / noise section bg via gradient --- */
+.bg-fresh {
+  background:
+    radial-gradient(1200px 500px at 10% -10%, rgba(34,197,94,.10), transparent 60%),
+    radial-gradient(900px 400px at 100% 0%, rgba(249,115,22,.10), transparent 55%);
+}

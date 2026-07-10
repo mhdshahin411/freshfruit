@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Logs & temp
+*.log
+.cache/
+.tmp/
+
+# Local Claude preview server config (optional, keep launch.json out if you prefer)
+# .claude/

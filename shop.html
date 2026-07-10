@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop Fresh Fruits, Vegetables & Juices — Fresh Focus Dubai</title>
+  <meta name="description" content="Shop premium fresh fruits, vegetables, cold-pressed juices and bulk boxes online. Filter by category, price and origin. Same-day delivery across Dubai." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      fontFamily: { display: ["Poppins","sans-serif"], sans: ["Inter","sans-serif"] },
+      colors: { brand: { 50:"#ecfdf3",100:"#d1fadf",200:"#a6f4c5",300:"#6ce9a6",400:"#32d583",500:"#22c55e",600:"#16a34a",700:"#15803d",800:"#166534",900:"#14532d" } },
+    } } };
+  </script>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script defer src="assets/js/products.js"></script>
+  <script defer src="assets/js/cart.js"></script>
+  <script defer src="assets/js/site.js"></script>
+</head>
+<body data-page="shop" class="bg-neutral-50 text-neutral-800">
+  <header data-header></header>
+
+  <!-- page hero -->
+  <section class="bg-white border-b border-neutral-100">
+    <div class="mx-auto max-w-7xl px-4 py-8 md:py-12">
+      <nav class="text-sm text-neutral-400 mb-3"><a href="index.html" class="hover:text-brand-700">Home</a> <span class="mx-1">/</span> <span class="text-neutral-700 font-medium">Shop</span></nav>
+      <h1 class="font-display font-extrabold text-3xl md:text-4xl text-neutral-900" data-title>All Products</h1>
+      <p class="mt-2 text-neutral-500" data-subtitle>Fresh, hand-picked produce delivered same-day across Dubai.</p>
+    </div>
+  </section>
+
+  <main class="mx-auto max-w-7xl px-4 py-8">
+    <div class="grid lg:grid-cols-[280px_1fr] gap-8">
+      <!-- ============ FILTER SIDEBAR ============ -->
+      <aside class="lg:sticky lg:top-28 lg:self-start">
+        <!-- mobile filter toggle -->
+        <button data-filter-toggle class="lg:hidden w-full flex items-center justify-between rounded-xl bg-white border border-neutral-200 px-4 py-3 font-semibold mb-4">
+          <span>Filters</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+        </button>
+        <div data-filter-panel class="hidden lg:block space-y-6 rounded-2xl bg-white border border-neutral-100 p-5">
+          <div class="flex items-center justify-between">
+            <h2 class="font-display font-bold text-lg text-neutral-900">Filters</h2>
+            <button data-clear class="text-sm text-brand-700 font-semibold hover:underline">Clear all</button>
+          </div>
+
+          <!-- category -->
+          <div>
+            <h3 class="font-semibold text-sm text-neutral-900 mb-3">Category</h3>
+            <div class="space-y-1.5" data-cat-filters></div>
+          </div>
+
+          <!-- price -->
+          <div>
+            <h3 class="font-semibold text-sm text-neutral-900 mb-3">Max Price</h3>
+            <input type="range" min="5" max="200" value="200" step="5" class="w-full" data-price />
+            <div class="flex justify-between text-xs text-neutral-500 mt-2"><span>AED 5</span><span class="font-semibold text-brand-700" data-price-label>AED 200</span></div>
+          </div>
+
+          <!-- origin -->
+          <div>
+            <h3 class="font-semibold text-sm text-neutral-900 mb-3">Origin</h3>
+            <div class="space-y-1.5" data-origin-filters></div>
+          </div>
+
+          <!-- on sale -->
+          <label class="flex items-center gap-3 cursor-pointer select-none">
+            <input type="checkbox" data-sale class="peer sr-only" />
+            <span class="relative w-11 h-6 rounded-full bg-neutral-200 peer-checked:bg-brand-500 transition after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:rounded-full after:bg-white after:shadow after:transition peer-checked:after:translate-x-5"></span>
+            <span class="text-sm font-medium text-neutral-700">On sale only</span>
+          </label>
+        </div>
+      </aside>
+
+      <!-- ============ RESULTS ============ -->
+      <section>
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+          <p class="text-sm text-neutral-500"><span data-count class="font-semibold text-neutral-900">0</span> products</p>
+          <div class="flex items-center gap-2">
+            <label class="text-sm text-neutral-500">Sort</label>
+            <select data-sort class="rounded-xl border border-neutral-200 bg-white text-sm font-medium px-3 py-2 outline-none focus:ring-2 focus:ring-brand-400">
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="rating">Top Rated</option>
+              <option value="discount">Biggest Discount</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- active chips -->
+        <div data-chips class="flex flex-wrap gap-2 mb-5"></div>
+
+        <div data-grid class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6"></div>
+
+        <div data-empty class="hidden text-center py-20">
+          <p class="text-5xl mb-3">🧺</p>
+          <p class="text-lg font-semibold text-neutral-900">No products match your filters</p>
+          <p class="text-neutral-500 mt-1">Try widening your price range or clearing filters.</p>
+          <button data-clear class="mt-4 rounded-full bg-brand-600 text-white font-semibold px-5 py-2.5">Clear filters</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div data-footer></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(location.search);
+      const state = {
+        cats: new Set(params.get("cat") ? [params.get("cat")] : []),
+        origins: new Set(),
+        maxPrice: 200,
+        saleOnly: false,
+        tag: params.get("tag") || "",
+        sort: "featured",
+      };
+
+      // titles for deep links
+      if (state.tag === "mango") {
+        document.querySelector("[data-title]").textContent = "🥭 Mango Festival";
+        document.querySelector("[data-subtitle]").textContent = "Premium Alphonso, Kesar & mango boxes — up to 25% off this season.";
+      } else if (params.get("cat")) {
+        const c = CATEGORIES.find(c => c.slug === params.get("cat"));
+        if (c) { document.querySelector("[data-title]").textContent = c.name; document.querySelector("[data-subtitle]").textContent = c.blurb + " — delivered same-day across Dubai."; }
+      }
+
+      // build category filters
+      const catHost = document.querySelector("[data-cat-filters]");
+      catHost.innerHTML = CATEGORIES.map(c => `
+        <label class="flex items-center justify-between gap-2 cursor-pointer rounded-lg px-2 py-1.5 hover:bg-neutral-50">
+          <span class="flex items-center gap-2 text-sm text-neutral-700"><input type="checkbox" value="${c.slug}" data-cat ${state.cats.has(c.slug)?"checked":""} class="w-4 h-4 accent-brand-600"/> ${c.icon} ${c.name}</span>
+          <span class="text-xs text-neutral-400">${PRODUCTS.filter(p=>p.category===c.slug).length}</span>
+        </label>`).join("");
+
+      // origins
+      const origins = [...new Set(PRODUCTS.map(p => p.origin))].sort();
+      document.querySelector("[data-origin-filters]").innerHTML = origins.map(o => `
+        <label class="flex items-center gap-2 cursor-pointer text-sm text-neutral-700 rounded-lg px-2 py-1.5 hover:bg-neutral-50">
+          <input type="checkbox" value="${o}" data-origin class="w-4 h-4 accent-brand-600"/> ${o}
+        </label>`).join("");
+
+      const grid = document.querySelector("[data-grid]");
+      const empty = document.querySelector("[data-empty]");
+      const countEl = document.querySelector("[data-count]");
+      const chips = document.querySelector("[data-chips]");
+
+      function apply() {
+        let list = PRODUCTS.slice();
+        if (state.tag) list = list.filter(p => p.tags.includes(state.tag));
+        if (state.cats.size) list = list.filter(p => state.cats.has(p.category));
+        if (state.origins.size) list = list.filter(p => state.origins.has(p.origin));
+        list = list.filter(p => p.price <= state.maxPrice);
+        if (state.saleOnly) list = list.filter(p => p.oldPrice);
+
+        switch (state.sort) {
+          case "price-asc": list.sort((a,b)=>a.price-b.price); break;
+          case "price-desc": list.sort((a,b)=>b.price-a.price); break;
+          case "rating": list.sort((a,b)=>b.rating-a.rating); break;
+          case "discount": list.sort((a,b)=>discountPct(b)-discountPct(a)); break;
+          default: list.sort((a,b)=>(b.bestSeller?1:0)-(a.bestSeller?1:0));
+        }
+
+        countEl.textContent = list.length;
+        empty.classList.toggle("hidden", list.length>0);
+        grid.innerHTML = list.map((p,i)=>`<div data-reveal data-reveal-delay="${Math.min(i*40,240)}">${productCard(p)}</div>`).join("");
+        if (window.initReveal) initReveal();
+
+        // active chips
+        const active = [];
+        if (state.tag) active.push({label:`Tag: ${state.tag}`, clear:()=>{state.tag="";}});
+        state.cats.forEach(c=>active.push({label:CATEGORIES.find(x=>x.slug===c)?.name||c, clear:()=>state.cats.delete(c)}));
+        state.origins.forEach(o=>active.push({label:o, clear:()=>state.origins.delete(o)}));
+        if (state.saleOnly) active.push({label:"On sale", clear:()=>state.saleOnly=false});
+        if (state.maxPrice<200) active.push({label:`≤ AED ${state.maxPrice}`, clear:()=>{state.maxPrice=200;}});
+        chips.innerHTML = active.map((a,i)=>`<button data-chip="${i}" class="inline-flex items-center gap-1.5 rounded-full bg-brand-50 text-brand-700 text-sm font-medium pl-3 pr-2 py-1.5 hover:bg-brand-100 transition">${a.label} <span class="text-brand-400">✕</span></button>`).join("");
+        chips._items = active;
+      }
+
+      // wire filters
+      grid.parentElement.addEventListener("change", () => {});
+      document.querySelectorAll("[data-cat]").forEach(cb=>cb.addEventListener("change",e=>{ e.target.checked?state.cats.add(e.target.value):state.cats.delete(e.target.value); syncAndApply(); }));
+      document.querySelectorAll("[data-origin]").forEach(cb=>cb.addEventListener("change",e=>{ e.target.checked?state.origins.add(e.target.value):state.origins.delete(e.target.value); apply(); }));
+      const price = document.querySelector("[data-price]");
+      const priceLabel = document.querySelector("[data-price-label]");
+      price.addEventListener("input", e=>{ state.maxPrice=+e.target.value; priceLabel.textContent="AED "+state.maxPrice; apply(); });
+      document.querySelector("[data-sale]").addEventListener("change", e=>{ state.saleOnly=e.target.checked; apply(); });
+      document.querySelector("[data-sort]").addEventListener("change", e=>{ state.sort=e.target.value; apply(); });
+
+      chips.addEventListener("click", e=>{ const b=e.target.closest("[data-chip]"); if(!b)return; chips._items[+b.dataset.chip].clear(); syncAndApply(); });
+
+      document.querySelectorAll("[data-clear]").forEach(b=>b.addEventListener("click",()=>{
+        state.cats.clear(); state.origins.clear(); state.maxPrice=200; state.saleOnly=false; state.tag="";
+        syncAndApply();
+      }));
+
+      function syncAndApply(){
+        document.querySelectorAll("[data-cat]").forEach(cb=>cb.checked=state.cats.has(cb.value));
+        document.querySelectorAll("[data-origin]").forEach(cb=>cb.checked=state.origins.has(cb.value));
+        price.value=state.maxPrice; priceLabel.textContent="AED "+state.maxPrice;
+        document.querySelector("[data-sale]").checked=state.saleOnly;
+        apply();
+      }
+
+      // mobile filter toggle
+      document.querySelector("[data-filter-toggle]").addEventListener("click",()=>{
+        document.querySelector("[data-filter-panel]").classList.toggle("hidden");
+      });
+
+      apply();
+    });
+  </script>
+</body>
+</html>
