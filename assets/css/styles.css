@@ -11,7 +11,12 @@
 }
 
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-body { font-family: "Inter", system-ui, sans-serif; color: #1f2328; }
+/* Prevent horizontal overflow from decorative/off-canvas elements on mobile.
+   `clip` (not `hidden`) avoids creating a scroll container, so position: sticky keeps working. */
+html, body { overflow-x: clip; max-width: 100%; }
+body { font-family: "Inter", system-ui, sans-serif; color: #1f2328; position: relative; }
+/* Safari < 16 fallback (no overflow: clip support) */
+@supports not (overflow: clip) { html, body { overflow-x: hidden; } }
 .font-display { font-family: "Poppins", "Inter", sans-serif; }
 
 ::selection { background: var(--brand-500); color: #fff; }

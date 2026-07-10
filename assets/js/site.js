@@ -47,6 +47,8 @@ const NAV = [
 function renderHeader() {
   const host = document.querySelector("[data-header]");
   if (!host) return;
+  // Make the whole header sticky (top strip + nav) — pins for the entire page.
+  host.classList.add("sticky", "top-0", "z-40");
   const page = document.body.dataset.page || "";
   const links = NAV.map((n) => {
     const active = n.href.split("?")[0].replace(".html", "") === page;
@@ -103,7 +105,7 @@ function buildMobileMenu() {
   if (document.getElementById("mobile-menu")) return;
   const el = document.createElement("div");
   el.id = "mobile-menu";
-  el.className = "fixed inset-0 z-[70] lg:hidden invisible";
+  el.className = "fixed inset-0 z-[70] lg:hidden invisible overflow-hidden";
   el.innerHTML = `
     <div data-overlay class="absolute inset-0 bg-black/40 opacity-0 transition-opacity"></div>
     <div data-panel class="absolute top-0 right-0 h-full w-[82%] max-w-sm bg-white shadow-2xl translate-x-full transition-transform duration-300 flex flex-col">
@@ -131,7 +133,9 @@ function toggleMobileMenu(open) {
   const overlay = el.querySelector("[data-overlay]");
   if (open) {
     el.classList.remove("invisible");
-    requestAnimationFrame(() => { overlay.classList.add("opacity-100"); panel.classList.remove("translate-x-full"); });
+    void el.offsetWidth; // force reflow so the transition runs (no rAF dependency)
+    overlay.classList.add("opacity-100");
+    panel.classList.remove("translate-x-full");
     document.body.style.overflow = "hidden";
   } else {
     overlay.classList.remove("opacity-100");
@@ -189,7 +193,10 @@ function toggleSearch(open) {
   if (open) {
     el.classList.remove("invisible");
     el._render("");
-    requestAnimationFrame(() => { overlay.classList.add("opacity-100"); panel.classList.remove("-translate-y-full"); setTimeout(() => input.focus(), 150); });
+    void el.offsetWidth; // force reflow so the transition runs (no rAF dependency)
+    overlay.classList.add("opacity-100");
+    panel.classList.remove("-translate-y-full");
+    setTimeout(() => input.focus(), 150);
   } else {
     overlay.classList.remove("opacity-100");
     panel.classList.add("-translate-y-full");
