@@ -1,5 +1,5 @@
 /* =============================================================
-   Fresh Focus Food Stuff — Cart & Wishlist (localStorage)
+   Daily Fresh — Cart & Wishlist (localStorage)
    ============================================================= */
 
 const CART_KEY = "ff_cart";

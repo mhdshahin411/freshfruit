@@ -1,5 +1,5 @@
 /* =============================================================
-   Fresh Focus Food Stuff — Product Catalog (shared data)
+   Daily Fresh — Product Catalog (shared data)
    ============================================================= */
 
 const CATEGORIES = [

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://freshfocusfoodstuff.com/</loc><priority>1.0</priority></url>
-  <url><loc>https://freshfocusfoodstuff.com/shop.html</loc><priority>0.9</priority></url>
-  <url><loc>https://freshfocusfoodstuff.com/about.html</loc><priority>0.7</priority></url>
-  <url><loc>https://freshfocusfoodstuff.com/contact.html</loc><priority>0.7</priority></url>
-  <url><loc>https://freshfocusfoodstuff.com/cart.html</loc><priority>0.5</priority></url>
+  <url><loc>https://dailyfresh.ae/</loc><priority>1.0</priority></url>
+  <url><loc>https://dailyfresh.ae/shop.html</loc><priority>0.9</priority></url>
+  <url><loc>https://dailyfresh.ae/about.html</loc><priority>0.7</priority></url>
+  <url><loc>https://dailyfresh.ae/contact.html</loc><priority>0.7</priority></url>
+  <url><loc>https://dailyfresh.ae/cart.html</loc><priority>0.5</priority></url>
 </urlset>

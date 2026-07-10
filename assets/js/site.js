@@ -1,10 +1,10 @@
 /* =============================================================
-   Fresh Focus Food Stuff — Shared UI (header, footer, cards, fx)
+   Daily Fresh — Shared UI (header, footer, cards, fx)
    ============================================================= */
 
 const WHATSAPP = "971500000000"; // <-- replace with real WhatsApp number
 const PHONE_DISPLAY = "+971 50 000 0000";
-const EMAIL = "hello@freshfocusfoodstuff.com";
+const EMAIL = "hello@dailyfresh.ae";
 
 /* ---------- SVG icon set ---------- */
 const I = {
@@ -29,8 +29,8 @@ function logoMarkup(size = "text-xl") {
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-5 h-5"><path d="M11 20A7 7 0 0 1 4 13c0-6 8-9 16-9 0 8-3 16-9 16z" fill="rgba(255,255,255,.15)"/><path d="M4 13c4-1 8-3 11-8" stroke-linecap="round"/></svg>
     </span>
     <span class="leading-none">
-      <span class="block font-display font-extrabold ${size} tracking-tight text-neutral-900">Fresh<span class="text-brand-600">Focus</span></span>
-      <span class="block text-[10px] uppercase tracking-[0.2em] text-neutral-400 font-semibold">Food Stuff · Dubai</span>
+      <span class="block font-display font-extrabold ${size} tracking-tight text-neutral-900">Daily<span class="text-brand-600">Fresh</span></span>
+      <span class="block text-[10px] uppercase tracking-[0.2em] text-neutral-400 font-semibold">Fresh Produce · Dubai</span>
     </span>
   </a>`;
 }
@@ -307,7 +307,7 @@ function renderFooter() {
         </div>
       </div>
       <div class="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-neutral-500">
-        <p>© ${new Date().getFullYear()} Fresh Focus Food Stuff LLC · Dubai, UAE. All rights reserved.</p>
+        <p>© ${new Date().getFullYear()} Daily Fresh LLC · Dubai, UAE. All rights reserved.</p>
         <p class="flex gap-4"><a href="#" class="hover:text-neutral-300">Privacy</a><a href="#" class="hover:text-neutral-300">Terms</a><a href="#" class="hover:text-neutral-300">Delivery Info</a></p>
       </div>
     </div>
@@ -319,7 +319,7 @@ function renderWhatsAppFab() {
   if (document.getElementById("wa-fab")) return;
   const a = document.createElement("a");
   a.id = "wa-fab";
-  a.href = `https://wa.me/${WHATSAPP}?text=Hi%20Fresh%20Focus!%20I'd%20like%20to%20order%20fresh%20produce.`;
+  a.href = `https://wa.me/${WHATSAPP}?text=Hi%20Daily%20Fresh!%20I'd%20like%20to%20order%20fresh%20produce.`;
   a.target = "_blank"; a.rel = "noopener";
   a.className = "fixed z-50 bottom-5 right-5 flex items-center gap-2 rounded-full bg-[#25D366] text-white pl-3 pr-4 py-3 shadow-2xl shadow-green-600/40 hover:scale-105 transition group wa-pulse";
   a.innerHTML = `${I.whatsapp}<span class="hidden sm:block font-semibold text-sm max-w-0 group-hover:max-w-[140px] overflow-hidden whitespace-nowrap transition-all duration-300">Order on WhatsApp</span>`;

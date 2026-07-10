@@ -1,6 +1,6 @@
-# 🥭 Fresh Focus Food Stuff — Premium E-Commerce Website
+# 🥭 Daily Fresh — Premium E-Commerce Website
 
-A modern, premium, fully responsive e-commerce website for **Fresh Focus Food Stuff**, a fresh fruits & vegetables supplier based in Dubai, UAE — specialising in mangoes, exotic fruits, vegetables, cold-pressed juices and bulk produce with **same-day delivery**.
+A modern, premium, fully responsive e-commerce website for **Daily Fresh**, a fresh fruits & vegetables supplier based in Dubai, UAE — specialising in mangoes, exotic fruits, vegetables, cold-pressed juices and bulk produce with **same-day delivery**.
 
 Built as a **fast, SEO-friendly, zero-build static site** (HTML + Tailwind CSS + vanilla JS) so it runs anywhere with no compilation step and loads instantly.
 
@@ -80,4 +80,4 @@ The pages use the **Tailwind Play CDN** for instant setup (it prints a console w
 
 ---
 
-© Fresh Focus Food Stuff LLC · Dubai, UAE
+© Daily Fresh LLC · Dubai, UAE
